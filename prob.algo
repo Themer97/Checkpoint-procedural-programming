@@ -1,0 +1,34 @@
+PROCEDURE dot_product( VAR v1 , v2  : ARRAY_OF FLOAT[3])
+
+VAR
+    ps : FLOAT ;
+
+BEGIN
+   ps := v1[0]*v2[0] + v1[1]*v2[1] + v1[2]*v2[2];
+   Write(ps);
+END
+
+
+ALGORITHM Produit_scalaire
+
+VAR
+
+   vecteurs : ARRAY_OF FLOAT[3]; 
+   n : INTEGER;
+   vecteurX : ARRAY_OF vecteurs[n];
+   scalaire : FLOAT;
+   i , j : INTEGER;
+
+BEGIN
+ Read(n);
+ Read(vecteurX);
+ Read(scalaire);
+    FOR i FROM 0 TO n-2 STEP 1  DO
+        FOR j FROM i+1 TO n-1 STEP 1 DO 
+       scalaire := dot_product(vecteurX[j],vecteurX[i]);
+       IF (scalaire =0) THEN
+           Write("Deux vecteurs sont orthogonaux");
+       END_IF
+       END_FOR
+    END_FOR
+END
